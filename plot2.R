@@ -1,7 +1,6 @@
 dt<-read.table(file="data/household_power_consumption.txt",header=TRUE,sep=";"
                ,colClasses=(c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric"))
                ,nrows=2075259,na.strings=c("?",""))
-#install.packages("lubridate")
 require("lubridate")
 datetime<-parse_date_time(paste(dt$Date,dt$Time),"dmyhms",tz="UTC",truncated=3)
 dt<-cbind(datetime,dt[,3:9])

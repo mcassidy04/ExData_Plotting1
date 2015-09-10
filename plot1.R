@@ -8,12 +8,10 @@ dt<-cbind(datetime,dt[,3:9])
 rm(datetime)
 feb2days<-dt[dt$datetime>=strptime("02/01/2007 00:00:00","%m/%d/%Y %H:%M:%S",tz="UTC") 
              & dt$datetime<strptime("02/03/2007 00:00:00","%m/%d/%Y %H:%M:%S",tz="UTC"),]
-png(filename = "plot%01d.png",width=480,height=480,type="windows",pointsize = 12)
+png(filename = "plot1.png",width=480,height=480,type="windows",pointsize = 12)
 hist(feb2days$Global_active_power
      ,col="red"
      ,main="Global Active Power"
      ,xlab = "Global Active Power (kilowatts)"
-     ,xaxt = 'n'
 )
-axis(1,at=seq(0,max(feb2days[!is.na(feb2days$Global_active_power),]$Global_active_power),by=2),xpd=TRUE)
 dev.off()
